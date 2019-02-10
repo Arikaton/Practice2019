@@ -11,6 +11,7 @@ public class GameStatus : MonoBehaviour
     [SerializeField] int pointsPerDestroyedBlock = 83;
     [SerializeField] TextMeshProUGUI scoreText;
     public bool moveByMouse = true;
+    [SerializeField] bool isAutoPlayEnabled;
 
     //state
     [SerializeField] int currentScore = 0;
@@ -63,5 +64,10 @@ public class GameStatus : MonoBehaviour
             Cursor.visible = false;
         }
         return moveByMouse;
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
     }
 }
