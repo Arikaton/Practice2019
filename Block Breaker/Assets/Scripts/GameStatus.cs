@@ -12,6 +12,7 @@ public class GameStatus : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     public bool moveByMouse = true;
     [SerializeField] bool isAutoPlayEnabled;
+    private int currentLevel;
 
     //state
     [SerializeField] int currentScore = 0;
@@ -31,7 +32,8 @@ public class GameStatus : MonoBehaviour
     }
 
     private void Start()
-    {   
+    {
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
         UpdateScore();
     }
     // Update is called once per frame
@@ -69,5 +71,16 @@ public class GameStatus : MonoBehaviour
     public bool IsAutoPlayEnabled()
     {
         return isAutoPlayEnabled;
+    }
+
+    public int ReturnCurrentLevel ()
+    {
+        return currentLevel;
+    }
+
+    public void ResetCurrentScore()
+    {
+        currentScore = 0;
+        UpdateScore();
     }
 }

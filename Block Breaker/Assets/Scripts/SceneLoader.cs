@@ -9,11 +9,11 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().name.StartsWith("Level"))
         {
             Cursor.visible = false;
         }
-        if (SceneManager.GetActiveScene().name == "FinishGame")
+        else
         {
             Cursor.visible = true;
         }
@@ -35,5 +35,11 @@ public class SceneLoader : MonoBehaviour
     {
         gameStatus.DestoyGameStatus();
         SceneManager.LoadScene(0);
+    }
+
+    public void StartLastLevel()
+    {
+        SceneManager.LoadScene(gameStatus.ReturnCurrentLevel());
+        gameStatus.ResetCurrentScore();
     }
 }

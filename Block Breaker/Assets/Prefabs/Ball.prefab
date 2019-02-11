@@ -133,13 +133,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddle1: {fileID: 0}
-  yVel: 15
+  yVel: 20
   audioClips:
   - {fileID: 8300000, guid: 0174a5ae770db43a19c153d5b41f69c7, type: 3}
   - {fileID: 8300000, guid: 6143e2b50700b4d29946e7b53ffd2a92, type: 3}
   - {fileID: 8300000, guid: d3dbba555d5c84c9591b7b6e34b23808, type: 3}
   - {fileID: 8300000, guid: 5a42f70b8e0044ac58d68f86cfcb02c0, type: 3}
-  randomFactor: 0.5
+  randomFactor: 1
 --- !u!82 &3415909156297119980
 AudioSource:
   m_ObjectHideFlags: 0
