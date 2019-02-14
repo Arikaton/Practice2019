@@ -31,6 +31,13 @@ public class Ball : MonoBehaviour
             LockBall();
             LaunchBall();
         }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                rb.velocity += new Vector2(-2f, 2f);
+            }
+        }
     }
 
     private void LaunchBall()
@@ -51,8 +58,8 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Vector2 velocityTweak = new Vector2
-        (Random.Range(-1f, randomFactor), 
-         Random.Range(-1f, randomFactor));
+        (Random.Range(0, randomFactor), 
+         Random.Range(0, randomFactor));
         if (hasLaunch)
         {  
            AudioClip audioClip = audioClips[Random.Range(0, audioClips.Length)];

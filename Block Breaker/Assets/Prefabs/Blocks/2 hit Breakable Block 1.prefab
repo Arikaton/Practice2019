@@ -70,8 +70,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a4c259265192a4bf18c1292406fb7c38, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 80a115e5f85734a71b29fef6566fa87f, type: 3}
+  m_Color: {r: 1, g: 0.0312974, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,8 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 354fcb48aa1f14c0bb133db787eb6c70, type: 3}
   particleSparkleVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
-  maxHits: 3
   hitSprites:
   - {fileID: 21300000, guid: 564d8a06525c241748014304846cee41, type: 3}
   - {fileID: 21300000, guid: c8afea5ba45f348049441e50e44438d4, type: 3}
-  timeHits: 0

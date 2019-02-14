@@ -39,7 +39,7 @@ public class SceneLoader : MonoBehaviour
 
     public void StartLastLevel()
     {
-        SceneManager.LoadScene(gameStatus.ReturnCurrentLevel());
+        SceneManager.LoadScene(gameStatus.currentLevel);
         gameStatus.ResetCurrentScore();
     }
 }
