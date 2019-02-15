@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour
 {
-    [SerializeField] WaveConfig waveConfig;
+    WaveConfig waveConfig;
     List<Transform> wayPoints;
-    [SerializeField] float moveSpeed = 10f;
     int waypointIndex = 0;
 
     void Start()
@@ -19,6 +18,11 @@ public class EnemyPathing : MonoBehaviour
     void Update()
     {
         Move();
+    }
+
+    public void SetWaveConfig(WaveConfig waveConfig)
+    {
+        this.waveConfig = waveConfig;
     }
 
     private void Move()
