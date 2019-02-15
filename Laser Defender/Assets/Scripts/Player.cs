@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //config
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
+    [SerializeField] GameObject shootPrefab;
+    [SerializeField] float shootSpeed = 20f;
 
     float minX;
     float maxX;
     float minY;
     float maxY;
 
-    // Start is called before the first frame update
     void Start()
     {
         SetUpMoveBoundaries();
@@ -33,6 +35,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        Fire();
+    }
+
+    private void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject currentShot = Instantiate(shootPrefab, transform.position, Quaternion.identity) as GameObject;
+            currentShot.GetComponent<Rigidbody2D>().velocity = new Vector2(0, shootSpeed);
+        }
     }
 
     private void Move()
