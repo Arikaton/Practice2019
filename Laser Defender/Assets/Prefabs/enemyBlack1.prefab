@@ -113,6 +113,7 @@ MonoBehaviour:
   shootCounter: 0
   minTimeBetweenShoots: 0.2
   maxTimeBetweenShoots: 3
+  scoreForDestroy: 100
   projectile: {fileID: 899333253521935499, guid: d457adb67940144e4a44272e6bc66fde,
     type: 3}
   projectileSpeed: 10

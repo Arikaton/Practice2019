@@ -96,9 +96,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   padding: 1
-  health: 200
+  health: 300
   explosion: {fileID: 5739584022873906909, guid: 7b3b8916b661249efb3d9d0b772a3ce5,
     type: 3}
+  healthText: {fileID: 0}
   shootPrefab: {fileID: 5733701323250267340, guid: 4bad7b7451ac64b2b9252fc3f1eb0544,
     type: 3}
   shootSpeed: 20
