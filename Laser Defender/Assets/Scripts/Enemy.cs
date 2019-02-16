@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float shootCounter;
     [SerializeField] float minTimeBetweenShoots = 0.2f;
     [SerializeField] float maxTimeBetweenShoots = 3f;
+    [SerializeField] int scoreForDestroy = 50;
     [Header("Projectile")]
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 20f;
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<ScoreManager>().IncrementScore(scoreForDestroy);
         AudioSource.PlayClipAtPoint(SFXExplosion, Camera.main.transform.position, explosionVolume);
         Destroy(gameObject);
         GameObject exp = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;

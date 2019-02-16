@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 1f;
     [SerializeField] int health = 200;
     [SerializeField] GameObject explosion;
+    [SerializeField] TextMeshProUGUI healthText;
 
     [Header("Projectile")]
     [SerializeField] GameObject shootPrefab;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        healthText.text = health.ToString();
         SFXShoot = GetComponent<AudioSource>();
         SetUpMoveBoundaries();
     }
@@ -95,6 +98,7 @@ public class Player : MonoBehaviour
     private void ProcessHit(DamageDealer damageDealer)
     {
         health -= damageDealer.GetDamage();
+        healthText.text = health.ToString();
         damageDealer.Hit();
         if (health <= 0)
         {
@@ -104,6 +108,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<Level>().LoadFinishScene();
         AudioSource.PlayClipAtPoint(SFXExplosion, Camera.main.transform.position, explosionVolume);
         Destroy(gameObject);
         GameObject exp = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
