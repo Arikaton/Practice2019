@@ -6,11 +6,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //config
+    [Header("Player")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
+    [SerializeField] int health = 200;
+
+    [Header("Projectile")]
     [SerializeField] GameObject shootPrefab;
     [SerializeField] float shootSpeed = 20f;
-    [SerializeField] float projectileFiringPeriod = 0.5f;
+    [SerializeField] float projectileFiringPeriod = 0.1f;
 
     float minX;
     float maxX;
@@ -71,5 +75,22 @@ public class Player : MonoBehaviour
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, minX, maxX);
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, minY, maxY);
         transform.position = new Vector2(newXPos, newYPos);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
