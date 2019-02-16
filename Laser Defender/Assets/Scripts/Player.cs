@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         healthText.text = health.ToString();
         SFXShoot = GetComponent<AudioSource>();
         SetUpMoveBoundaries();
@@ -113,5 +114,6 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
         GameObject exp = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
         Destroy(exp, 0.5f);
+        Cursor.visible = true;
     }
 }
