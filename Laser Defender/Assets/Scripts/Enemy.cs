@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Enemy")]
     [SerializeField] float health = 100f;
     [SerializeField] float shootCounter;
     [SerializeField] float minTimeBetweenShoots = 0.2f;
     [SerializeField] float maxTimeBetweenShoots = 3f;
+    [Header("Projectile")]
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 20f;
+    [SerializeField] GameObject explosion;
+    [Header("SFX")]
+    [SerializeField] AudioClip SFXExplosion;
+    [SerializeField] [Range(0, 1)] float explosionVolume;
+    AudioSource enemyShoot;
     // Start is called before the first frame update
     void Start()
     {
+        enemyShoot = GetComponent<AudioSource>();
         shootCounter = Random.Range(minTimeBetweenShoots, maxTimeBetweenShoots);
     }
 
@@ -34,6 +42,7 @@ public class Enemy : MonoBehaviour
 
     private void Fire()
     {
+        enemyShoot.PlayOneShot(enemyShoot.clip);
         var fire = Instantiate(projectile,
                     transform.position,
                     Quaternion.identity) as GameObject;
@@ -54,7 +63,15 @@ public class Enemy : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        AudioSource.PlayClipAtPoint(SFXExplosion, Camera.main.transform.position, explosionVolume);
+        Destroy(gameObject);
+        GameObject exp = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
+        Destroy(exp, 0.5f);
     }
 }
