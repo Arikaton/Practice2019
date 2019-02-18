@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
 
-        var newXPos = Mathf.Clamp(transform.position.x + deltaX, minX, maxX);
+        var newXPos = Mathf.Clamp(transform.position.x + deltaX, -5f, 5f);
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, minY, maxY);
         transform.position = new Vector2(newXPos, newYPos);
     }
