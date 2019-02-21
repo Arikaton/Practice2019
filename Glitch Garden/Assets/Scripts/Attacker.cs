@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     float currentSpeed = 0;
+    [SerializeField] float health = 200f;
 
     void Update()
     {
@@ -14,5 +15,22 @@ public class Attacker : MonoBehaviour
     public void SetMovementSpeed (float speed)
     {
         currentSpeed = speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+        float damage = projectile.GetDamage();
+        projectile.Hit();
+        health -= damage;
+        if (health <= 0)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        Destroy(gameObject);
     }
 }
