@@ -6,6 +6,7 @@ public class Attacker : MonoBehaviour
 {
     float currentSpeed = 0;
     [SerializeField] float health = 200f;
+    [SerializeField] GameObject deathVFX;
 
     void Update()
     {
@@ -19,18 +20,23 @@ public class Attacker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-        float damage = projectile.GetDamage();
-        projectile.Hit();
-        health -= damage;
-        if (health <= 0)
+        if (collision.GetComponent<Projectile>())
         {
-            Death();
+            Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+            float damage = projectile.GetDamage();
+            projectile.Hit();
+            health -= damage;
+            if (health <= 0)
+            {
+                DeathVFX();
+                Destroy(gameObject);
+            }
         }
     }
 
-    private void Death()
+    private void DeathVFX()
     {
-        Destroy(gameObject);
+        GameObject dieVFX = Instantiate(deathVFX, transform.position + new Vector3(-0.25f, -0.25f), transform.rotation);
+        Destroy(dieVFX, 0.5f);
     }
 }
