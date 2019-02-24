@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class SpawnDefenders : MonoBehaviour
 {
-    [SerializeField] GameObject defender;
+    Defender defender;
     
     private void OnMouseDown()
     {
         SpawnAtPos();
+    }
+
+    public void SetSelectedDefender(Defender selecetedDefender)
+    {
+        defender = selecetedDefender;
     }
 
     private void SpawnAtPos()
@@ -17,7 +22,9 @@ public class SpawnDefenders : MonoBehaviour
         Vector2 clickPos = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(clickPos);
         Vector2 gridPos = new Vector2(Mathf.RoundToInt(worldPos.x), Mathf.RoundToInt(worldPos.y));
-        Instantiate(defender, gridPos, transform.rotation);
-
+        if (defender)
+        {
+            Defender defenderObject = Instantiate(defender, gridPos, transform.rotation) as Defender;
+        }
     }
 }
