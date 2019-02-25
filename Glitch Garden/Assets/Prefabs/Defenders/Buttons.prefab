@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8709432649830907771}
   - component: {fileID: 8709432649830907768}
   m_Layer: 0
-  m_Name: Cactus Idle_23
+  m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 8709432650327118933}
   - component: {fileID: 8709432650327118938}
   m_Layer: 0
-  m_Name: trophy whole
+  m_Name: trophy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,4 +334,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e961b70e5f1f74854859504665904f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defenderPrefab: {fileID: 0}
+  defenderPrefab: {fileID: 2392711024642040642, guid: 31cff4568d4144c5595c238969029161,
+    type: 3}
