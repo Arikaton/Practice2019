@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2457649408819056405}
   - component: {fileID: 8618857753535154825}
   - component: {fileID: 653793213973525600}
+  - component: {fileID: 8420154515610858233}
   - component: {fileID: 3300647653840706642}
   - component: {fileID: 1665838584256798861}
   m_Layer: 0
@@ -96,6 +97,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 5
   projectileRotate: 10
+--- !u!114 &8420154515610858233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538591675108884194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248d30ee0ce484fe1b4c4b3acb025250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   damage: 100
 --- !u!60 &3300647653840706642
 PolygonCollider2D:

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     float currentSpeed = 0;
-    [SerializeField] float health = 200f;
     [SerializeField] GameObject deathVFX;
 
     void Update()
@@ -23,10 +22,11 @@ public class Attacker : MonoBehaviour
         if (collision.GetComponent<Projectile>())
         {
             Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-            float damage = projectile.GetDamage();
+            DamageDealer damage = collision.GetComponent<DamageDealer>();
             projectile.Hit();
-            health -= damage;
-            if (health <= 0)
+            Health healthDealer = GetComponent<Health>();
+            healthDealer.GetDamage(damage.GetDamage);
+            if (healthDealer.GetHealth <= 0)
             {
                 DeathVFX();
                 Destroy(gameObject);
