@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3715965281024626704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1084, y: -0.08004639, z: 0.5}
+  m_LocalPosition: {x: 0.1084, y: -0.059, z: 0.5}
   m_LocalScale: {x: 0.08984392, y: 0.9322389, z: 0.80359}
   m_Children: []
   m_Father: {fileID: 8709432649080472141}
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 4b191cd21fd7a401297a33be0974afe6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -365,8 +365,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8709432649830907774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.207, y: 0.0115, z: 0.014461216}
-  m_LocalScale: {x: 0.11382064, y: 1.2335093, z: 1}
+  m_LocalPosition: {x: -0.207, y: 0.039, z: 0.014461216}
+  m_LocalScale: {x: 0.100357935, y: 1.0876099, z: 0.88172}
   m_Children: []
   m_Father: {fileID: 8709432649080472141}
   m_RootOrder: 0
@@ -432,7 +432,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008325562, y: -0.01990652}
+  m_Offset: {x: 0.003852427, y: -0.058450937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -443,7 +443,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9500468, y: 0.7627347}
+  m_Size: {x: 1.0305616, y: 0.8398235}
   m_EdgeRadius: 0
 --- !u!114 &8709432649830907768
 MonoBehaviour:
@@ -553,7 +553,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006444305, y: 0}
+  m_Offset: {x: -0.018476412, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -564,7 +564,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7537748, y: 0.8006412}
+  m_Size: {x: 0.8259678, y: 0.8006412}
   m_EdgeRadius: 0
 --- !u!114 &8709432650327118938
 MonoBehaviour:

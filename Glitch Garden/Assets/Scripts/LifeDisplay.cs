@@ -37,7 +37,7 @@ public class LifeDisplay : MonoBehaviour
         }
         else
         {
-            FindObjectOfType<LoadLevel>().GameOver();
+            FindObjectOfType<LevelController>().LoseGame();
         }
     }
 }

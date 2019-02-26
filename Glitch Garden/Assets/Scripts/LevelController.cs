@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelController : MonoBehaviour
+public class LevelController : MonoBehaviour 
 {
-    [SerializeField] int countAttackers = 0;
+    int countAttackers = 0;
+    [SerializeField] GameObject winLabel;
+    [SerializeField] GameObject loseLabel;
+    [SerializeField] AudioClip winSound;
+    bool loseGame = false;
+    bool endTimer = false;
 
-    public void AddAtacker() => countAttackers += 1;
+    private void Start()
+    {
+        winLabel.SetActive(false);
+        loseLabel.SetActive(false);
+    }
+
+    public void AddAtacker() => countAttackers ++;
 
     public void RemoveAttacker()
     {
-        countAttackers -= 1;
-        if (countAttackers <= 0)
+        countAttackers --;
+        if (countAttackers <= 0 & endTimer & !loseGame)
         {
-            WinLevel();
+            StartCoroutine(WinLevel());
         }
     }
 
@@ -24,10 +35,21 @@ public class LevelController : MonoBehaviour
         {
             spawn.FinishLevel();
         }
+        endTimer = true;
     }
 
-    void WinLevel()
+    IEnumerator WinLevel()
     {
-        Debug.Log("You WIN!!");
+        winLabel.SetActive(true);
+        AudioSource.PlayClipAtPoint(winSound, Camera.main.transform.position);
+        yield return new WaitForSeconds(3f);
+        FindObjectOfType<LoadLevel>().LoadNextScene(); //Load win window
+    }
+
+    public void LoseGame()
+    {
+        loseGame = true;
+        loseLabel.SetActive(true);
+        Time.timeScale = 0;
     }
 }

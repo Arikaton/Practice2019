@@ -9,7 +9,10 @@ public class SpawnDefenders : MonoBehaviour
     
     private void OnMouseDown()
     {
-        AttemptToPlaceDefenderAt(GetSquareClicked());
+        if (defender)
+        {
+            AttemptToPlaceDefenderAt(GetSquareClicked());
+        }
     }
 
     private void AttemptToPlaceDefenderAt (Vector2 gridPos)
