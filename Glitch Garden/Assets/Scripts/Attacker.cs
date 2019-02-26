@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     float currentSpeed = 0;
-    [SerializeField] GameObject deathVFX;
+    GameObject currentTarget;
 
     void Update()
     {
@@ -17,26 +17,24 @@ public class Attacker : MonoBehaviour
         currentSpeed = speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Attack(GameObject target)
     {
-        if (collision.GetComponent<Projectile>())
+        GetComponent<Animator>().SetBool("IsAttacking", true);
+        currentTarget = target;
+    }
+
+    public void StrikeCurrentTarget(int damage)
+    {
+        if (!currentTarget) { return; }
+        Health health = currentTarget.GetComponent<Health>();
+        if (health)
         {
-            Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-            DamageDealer damage = collision.GetComponent<DamageDealer>();
-            projectile.Hit();
-            Health healthDealer = GetComponent<Health>();
-            healthDealer.GetDamage(damage.GetDamage);
-            if (healthDealer.GetHealth <= 0)
-            {
-                DeathVFX();
-                Destroy(gameObject);
-            }
+            health.GetDamage(damage);
         }
     }
 
-    private void DeathVFX()
+    public void HasAim()
     {
-        GameObject dieVFX = Instantiate(deathVFX, transform.position + new Vector3(-0.25f, -0.25f), transform.rotation);
-        Destroy(dieVFX, 0.5f);
+        if (!currentTarget) { GetComponent<Animator>().SetBool("IsAttacking", false); }
     }
 }

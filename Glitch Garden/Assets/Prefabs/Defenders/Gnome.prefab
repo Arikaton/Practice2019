@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 5792550858299463075}
   - component: {fileID: 5792550858299463074}
   - component: {fileID: 5792550858299463073}
+  - component: {fileID: 68522894783700981}
   m_Layer: 0
   m_Name: Gnome
   m_TagString: Untagged
@@ -146,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f1fbcb6d0b1432e9306b8066b4acd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
+  deathVFX: {fileID: 0}
 --- !u!114 &5792550858299463074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a76d09e6b9d44e40b5ab17cd1193eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starCost: 300
+  starCost: 200
   minRandomAmount: 3
 --- !u!114 &5792550858299463073
 MonoBehaviour:
@@ -176,6 +178,32 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5870878411312115530, guid: fa8e49e9e270141c4bdf1a8a025e468d,
     type: 3}
   gun: {fileID: 5792550859345772154}
+--- !u!61 &68522894783700981
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792550858299463072}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.013123751, y: -0.0065618753}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0262475, y: 1.0131238}
+  m_EdgeRadius: 0
 --- !u!1 &5792550859345772154
 GameObject:
   m_ObjectHideFlags: 0

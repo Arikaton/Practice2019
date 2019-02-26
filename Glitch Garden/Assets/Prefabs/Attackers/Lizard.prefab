@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 579299260203035470}
   - component: {fileID: 579299260203035469}
   - component: {fileID: 3453422908775498037}
+  - component: {fileID: 8264319087552336565}
   - component: {fileID: 792064543213388119}
   - component: {fileID: 6470937731695438567}
+  - component: {fileID: 579299260203035466}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -67,8 +69,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5398e441e7578443b8148abb208ed2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathVFX: {fileID: 8912907528307583543, guid: 69df810fbf9404ad18980223a670e422,
-    type: 3}
 --- !u!114 &3453422908775498037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +82,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  deathVFX: {fileID: 8912907528307583543, guid: 69df810fbf9404ad18980223a670e422,
+    type: 3}
+--- !u!114 &8264319087552336565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579299260203035465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de90796abd55b44c887f9874eaf22471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &792064543213388119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,10 +106,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.04378724, y: 0.039408445}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -106,7 +120,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.86304474, y: 0.9157262}
+  m_Size: {x: 0.5302625, y: 0.8369093}
   m_EdgeRadius: 0
 --- !u!50 &6470937731695438567
 Rigidbody2D:
@@ -129,6 +143,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &579299260203035466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579299260203035465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de90796abd55b44c887f9874eaf22471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1223254967226955305
 GameObject:
   m_ObjectHideFlags: 0

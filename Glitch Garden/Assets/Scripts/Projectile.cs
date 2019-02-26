@@ -15,4 +15,15 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Attacker>())
+        {
+            DamageDealer damage = GetComponent<DamageDealer>();
+            Hit();
+            Health healthDealer = collision.GetComponent<Health>();
+            healthDealer.GetDamage(damage.GetDamage);
+        }
+    }
 }
