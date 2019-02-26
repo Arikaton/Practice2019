@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2077342198878704914}
   m_Layer: 0
   m_Name: Gravestone
-  m_TagString: Untagged
+  m_TagString: Gravestone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 500
+  deathVFX: {fileID: 0}
 --- !u!1 &4443465593721665690
 GameObject:
   m_ObjectHideFlags: 0

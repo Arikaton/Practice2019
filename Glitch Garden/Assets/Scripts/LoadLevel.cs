@@ -23,8 +23,23 @@ public class LoadLevel : MonoBehaviour
         LoadNextScene();
     }
 
-    void LoadNextScene()
+    public void LoadNextScene()
     {
         SceneManager.LoadScene(currentScene + 1);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }
