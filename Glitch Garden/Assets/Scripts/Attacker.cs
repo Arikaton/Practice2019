@@ -7,6 +7,11 @@ public class Attacker : MonoBehaviour
     float currentSpeed = 0;
     GameObject currentTarget;
 
+    private void Start()
+    {
+        FindObjectOfType<LevelController>().AddAtacker();
+    }
+
     void Update()
     {
         transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
@@ -36,5 +41,10 @@ public class Attacker : MonoBehaviour
     public void HasAim()
     {
         if (!currentTarget) { GetComponent<Animator>().SetBool("IsAttacking", false); }
+    }
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<LevelController>().RemoveAttacker();
     }
 }

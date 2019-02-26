@@ -25,9 +25,5 @@ public class AttackersSpawner : MonoBehaviour
         newAttacker.transform.parent = transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void FinishLevel() => spawn = false;
 }

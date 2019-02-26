@@ -18,11 +18,19 @@ public class LifeDisplay : MonoBehaviour
     private void UpdateDisplay()
     {
         lifetext.text = lifeCount.ToString();
+        if (lifeCount == 10 )
+        {
+            lifetext.color = Color.yellow;
+        } 
+        if (lifeCount == 3)
+        {
+            lifetext.color = Color.red;
+        }
     }
 
     public void LoseLife()
     {
-        if (lifeCount > 0)
+        if (lifeCount > 1)
         {
             lifeCount -= 1;
             UpdateDisplay();
