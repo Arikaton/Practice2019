@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 public class LifeDisplay : MonoBehaviour
 {
-    [SerializeField] int lifeCount = 20;
+    [SerializeField] int lifeCount;
     Text lifetext;
 
     private void Start()
     {
+        lifeCount = 21 - PlayerPrefsController.GetLifeCount();
         lifetext = GetComponent<Text>();
         UpdateDisplay();
     }
@@ -18,14 +19,6 @@ public class LifeDisplay : MonoBehaviour
     private void UpdateDisplay()
     {
         lifetext.text = lifeCount.ToString();
-        if (lifeCount == 10 )
-        {
-            lifetext.color = Color.yellow;
-        } 
-        if (lifeCount == 3)
-        {
-            lifetext.color = Color.red;
-        }
     }
 
     public void LoseLife()

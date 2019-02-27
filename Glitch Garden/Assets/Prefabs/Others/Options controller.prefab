@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5120083470880316970
+--- !u!1 &929198868870473674
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6131532594363403900}
-  - component: {fileID: 8913458842696135144}
+  - component: {fileID: 225562593938844329}
+  - component: {fileID: 5439227587585113214}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Options controller
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6131532594363403900
+--- !u!4 &225562593938844329
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5120083470880316970}
+  m_GameObject: {fileID: 929198868870473674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,20 +31,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8913458842696135144
+--- !u!114 &5439227587585113214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5120083470880316970}
+  m_GameObject: {fileID: 929198868870473674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd37e557c92f4983a4246cc21b85b9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 438628f6b7bed4d6686c7f537217f0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnDelay: 4
-  maxSpawnDelay: 5
-  attackersPrefab:
-  - {fileID: 767030378503161731, guid: 19614714b5be34067a51a82be81da2cf, type: 3}
-  - {fileID: 579299260203035469, guid: 0ff65e4bb3d4a4a6789e1eecb288fe1c, type: 3}

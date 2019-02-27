@@ -49,4 +49,9 @@ public class LoadLevel : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(currentScene);
     }
+
+    public void Settings()
+    {
+        SceneManager.LoadScene("Settings");
+    }
 }

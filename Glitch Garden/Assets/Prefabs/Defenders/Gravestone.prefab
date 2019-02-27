@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a76d09e6b9d44e40b5ab17cd1193eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starCost: 200
+  starCost: 80
   minRandomAmount: 3
 --- !u!95 &915757423210813796
 Animator:
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f1fbcb6d0b1432e9306b8066b4acd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 250
   deathVFX: {fileID: 0}
 --- !u!1 &4443465593721665690
 GameObject:
