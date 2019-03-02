@@ -10,13 +10,15 @@ public class Player : MonoBehaviour
     [SerializeField] float secondJumpForce = 2f;
     Rigidbody2D rb;
     Animator animator;
-    Collider2D myCollider;
+    CapsuleCollider2D capsuleCollider;
+    BoxCollider2D boxCollider;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        myCollider = GetComponent<Collider2D>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if (!boxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         if (Input.GetButtonDown("Jump"))
             {
                 rb.velocity += new Vector2(0, jumpForce);
@@ -60,7 +62,7 @@ public class Player : MonoBehaviour
 
     void ClimbLadder()
     {
-        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"))) 
+        if (!capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"))) 
         { 
             animator.SetBool("Climbing", false);
             rb.gravityScale = 1;
