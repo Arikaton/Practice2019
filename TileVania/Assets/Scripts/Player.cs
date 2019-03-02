@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     Animator animator;
     CapsuleCollider2D capsuleCollider;
     BoxCollider2D boxCollider;
+    bool isAlive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +24,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive) { return; }
         MovePlayer();
         FlipSprite();
         Jump();
         ClimbLadder();
+        Death();  
     }
 
     private void MovePlayer()
@@ -72,5 +75,15 @@ public class Player : MonoBehaviour
         rb.gravityScale = 0;
         animator.SetBool("Climbing", true);
         rb.velocity = new Vector2(rb.velocity.x, Input.GetAxis("Vertical") * movementSpeed);
+    }
+
+    void Death()
+    {
+        if (capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            rb.velocity = Vector2.zero;
+            isAlive = false;
+            animator.SetTrigger("Death");
+        }
     }
 }
