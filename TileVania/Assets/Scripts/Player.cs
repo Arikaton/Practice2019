@@ -7,13 +7,16 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] float jumpForce = 5f;
+    [SerializeField] float secondJumpForce = 2f;
     Rigidbody2D rb;
     Animator animator;
+    Collider2D myCollider;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        myCollider = GetComponent<Collider2D>();
     }
 
     void Update()
@@ -21,6 +24,7 @@ public class Player : MonoBehaviour
         MovePlayer();
         FlipSprite();
         Jump();
+        ClimbLadder();
     }
 
     private void MovePlayer()
@@ -38,11 +42,11 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
+        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         if (Input.GetButtonDown("Jump"))
-        {
-            float newY = jumpForce;
-            rb.velocity += new Vector2(0, newY);
-        }
+            {
+                rb.velocity += new Vector2(0, jumpForce);
+            }
     }
 
     void FlipSprite()
@@ -52,5 +56,19 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector3(Mathf.Sign(rb.velocity.x), 1, 1);
         } 
+    }
+
+    void ClimbLadder()
+    {
+        if (!myCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"))) 
+        { 
+            animator.SetBool("Climbing", false);
+            rb.gravityScale = 1;
+            return;
+        }
+
+        rb.gravityScale = 0;
+        animator.SetBool("Climbing", true);
+        rb.velocity = new Vector2(rb.velocity.x, Input.GetAxis("Vertical") * movementSpeed);
     }
 }
